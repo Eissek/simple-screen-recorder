@@ -13,6 +13,7 @@
 (def image (r/adapt-react-class (.-Image js/React)))
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight js/React)))
 (def toolbar-android (r/adapt-react-class (.-ToolbarAndroid js/React)))
+;; (def toolbar-title (r/adapat-react-class (.-ToolbarAndroid/title js/React)))
 
 (def logo-img (require-img "./images/cljs.png"))
 
@@ -26,18 +27,34 @@
               :backgroundColor "#FFF"
               :margin 0
               :alignItems "center"
+              :color "#000"
               ;; :padding 10
               }}
-       [toolbar-android {:title "HEY man"
-                          
-                        :style {
-                                :flexDirection "row"
-                                :backgroundColor "#000"
-                                :color "#FFF"
-                                :height 30
-                                :width 300}}
-        [view {:title "hey" :style {:color "white"}}]
-       ]])))
+       [view {:style {:flexDirection "row"
+                      :alignItems "center"
+                      ;; :color "#000"
+                      :backgroundColor "#FFB700"
+                      :alignSelf "stretch"
+                      :height 40
+                      :justifyContent "space-around"}}
+        [image ]
+        [text {:style {:color "#000"
+                       :textAlign "center"
+                       :fontSize 20}}
+         "Simple Screen Recorder"]]
+       ;; [toolbar-android {:title "Simple Screen Recorder"
+       ;;                   :titleColor "#000"
+       ;;                   :subtitle "-YYEEESssssssssss"
+       ;;                   :style {:justifyContent "center"
+       ;;                           :fontSize 5
+       ;;                           ;; :alignItems "center"
+       ;;                           :alignSelf "stretch"
+       ;;                           :textAlign "center"
+       ;;                           :flexDirection "row"
+       ;;                           :backgroundColor "#FFB700"
+       ;;                           :color "#FFF"
+       ;;                           :height 40}}]
+       ])))
 
 ;; [text {:style {:color "#FFF"}} "YO YO"]
 
