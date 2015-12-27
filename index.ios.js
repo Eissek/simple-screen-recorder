@@ -1,1 +1,0 @@
-require('figwheel-bridge').start('SimpleScreenRecorder','ios', '10.0.3.2');

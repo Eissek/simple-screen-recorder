@@ -38,3 +38,5 @@ npm-debug.log
 *.log
 CHANGELOG.md
 LICENSE
+ios/
+index.ios.js
