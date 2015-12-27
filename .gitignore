@@ -35,5 +35,6 @@ npm-debug.log
 
 # re-natal
 #
-.log
+*.log
 CHANGELOG.md
+LICENSE
