@@ -1,0 +1,1 @@
+require('figwheel-bridge').start('SimpleScreenRecorder','android', '10.0.3.2');
