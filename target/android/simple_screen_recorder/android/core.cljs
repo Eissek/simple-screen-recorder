@@ -37,14 +37,21 @@
                       :backgroundColor "#FFB700"
                       :alignSelf "stretch"
                       :height 40
-                      :justifyContent "space-around"}}
+                      :justifyContent "space-between"
+                      }}
         [icon {:name "bars"
                :size 15
-               :color "#000"}]
+               :color "#000"
+               :style {:margin-left 0}}]
         [text {:style {:color "#000"
                        :textAlign "center"
-                       :fontSize 20}}
-         "Simple Screen Recorder"]]
+                       :fontSize 15}}
+         "Simple Screen Recorder"]
+        [icon {:name "ellipsis-v"
+              :size 15
+              :color "#000"
+               :style {:margin-right 10}}]]
+       
        ;; [toolbar-android {:title "Simple Screen Recorder"
        ;;                   :titleColor "#000"
        ;;                   :subtitle "-YYEEESssssssssss"
