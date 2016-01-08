@@ -118,19 +118,19 @@ return cljs.core.reset_BANG_.call(null,undos,cljs.core.pop.call(null,u));
  */
 re_frame.undo.undo_n = (function re_frame$undo$undo_n(n){
 while(true){
-if(cljs.core.truth_((function (){var and__16829__auto__ = (n > (0));
-if(and__16829__auto__){
+if(cljs.core.truth_((function (){var and__4656__auto__ = (n > (0));
+if(and__4656__auto__){
 return re_frame.undo.undos_QMARK_.call(null);
 } else {
-return and__16829__auto__;
+return and__4656__auto__;
 }
 })())){
 re_frame.undo.undo.call(null,re_frame.undo.undo_list,re_frame.db.app_db,re_frame.undo.redo_list);
 
 re_frame.undo.undo.call(null,re_frame.undo.undo_explain_list,re_frame.undo.app_explain,re_frame.undo.redo_explain_list);
 
-var G__20760 = (n - (1));
-n = G__20760;
+var G__12511 = (n - (1));
+n = G__12511;
 continue;
 } else {
 return null;
@@ -138,16 +138,16 @@ return null;
 break;
 }
 });
-re_frame.handlers.register_base.call(null,new cljs.core.Keyword(null,"undo","undo",-1818036302),(function re_frame$undo$handler(_,p__20761){
-var vec__20763 = p__20761;
-var ___$1 = cljs.core.nth.call(null,vec__20763,(0),null);
-var n = cljs.core.nth.call(null,vec__20763,(1),null);
+re_frame.handlers.register_base.call(null,new cljs.core.Keyword(null,"undo","undo",-1818036302),(function re_frame$undo$handler(_,p__12512){
+var vec__12514 = p__12512;
+var ___$1 = cljs.core.nth.call(null,vec__12514,(0),null);
+var n = cljs.core.nth.call(null,vec__12514,(1),null);
 if(cljs.core.not.call(null,re_frame.undo.undos_QMARK_.call(null))){
 return re_frame.utils.warn.call(null,"re-frame: you did a (dispatch [:undo]), but there is nothing to undo.");
 } else {
-return re_frame.undo.undo_n.call(null,(function (){var or__16841__auto__ = n;
-if(cljs.core.truth_(or__16841__auto__)){
-return or__16841__auto__;
+return re_frame.undo.undo_n.call(null,(function (){var or__4668__auto__ = n;
+if(cljs.core.truth_(or__4668__auto__)){
+return or__4668__auto__;
 } else {
 return (1);
 }
@@ -168,19 +168,19 @@ return cljs.core.reset_BANG_.call(null,undos,u);
  */
 re_frame.undo.redo_n = (function re_frame$undo$redo_n(n){
 while(true){
-if(cljs.core.truth_((function (){var and__16829__auto__ = (n > (0));
-if(and__16829__auto__){
+if(cljs.core.truth_((function (){var and__4656__auto__ = (n > (0));
+if(and__4656__auto__){
 return re_frame.undo.redos_QMARK_.call(null);
 } else {
-return and__16829__auto__;
+return and__4656__auto__;
 }
 })())){
 re_frame.undo.redo.call(null,re_frame.undo.undo_list,re_frame.db.app_db,re_frame.undo.redo_list);
 
 re_frame.undo.redo.call(null,re_frame.undo.undo_explain_list,re_frame.undo.app_explain,re_frame.undo.redo_explain_list);
 
-var G__20764 = (n - (1));
-n = G__20764;
+var G__12515 = (n - (1));
+n = G__12515;
 continue;
 } else {
 return null;
@@ -188,16 +188,16 @@ return null;
 break;
 }
 });
-re_frame.handlers.register_base.call(null,new cljs.core.Keyword(null,"redo","redo",501190664),(function re_frame$undo$handler(_,p__20765){
-var vec__20767 = p__20765;
-var ___$1 = cljs.core.nth.call(null,vec__20767,(0),null);
-var n = cljs.core.nth.call(null,vec__20767,(1),null);
+re_frame.handlers.register_base.call(null,new cljs.core.Keyword(null,"redo","redo",501190664),(function re_frame$undo$handler(_,p__12516){
+var vec__12518 = p__12516;
+var ___$1 = cljs.core.nth.call(null,vec__12518,(0),null);
+var n = cljs.core.nth.call(null,vec__12518,(1),null);
 if(cljs.core.not.call(null,re_frame.undo.redos_QMARK_.call(null))){
 return re_frame.utils.warn.call(null,"re-frame: you did a (dispatch [:redo]), but there is nothing to redo.");
 } else {
-return re_frame.undo.redo_n.call(null,(function (){var or__16841__auto__ = n;
-if(cljs.core.truth_(or__16841__auto__)){
-return or__16841__auto__;
+return re_frame.undo.redo_n.call(null,(function (){var or__4668__auto__ = n;
+if(cljs.core.truth_(or__4668__auto__)){
+return or__4668__auto__;
 } else {
 return (1);
 }
@@ -211,5 +211,3 @@ return re_frame.utils.warn.call(null,"re-frame: you did a (dispatch [:purge-redo
 return re_frame.undo.clear_redos_BANG_.call(null);
 }
 }));
-
-//# sourceMappingURL=undo.js.map

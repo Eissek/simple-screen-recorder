@@ -18,14 +18,14 @@ schema.spec.core.subschemas = (function schema$spec$core$subschemas(this$){
 if((!((this$ == null))) && (!((this$.schema$spec$core$CoreSpec$subschemas$arity$1 == null)))){
 return this$.schema$spec$core$CoreSpec$subschemas$arity$1(this$);
 } else {
-var x__17496__auto__ = (((this$ == null))?null:this$);
-var m__17497__auto__ = (schema.spec.core.subschemas[goog.typeOf(x__17496__auto__)]);
-if(!((m__17497__auto__ == null))){
-return m__17497__auto__.call(null,this$);
+var x__5323__auto__ = (((this$ == null))?null:this$);
+var m__5324__auto__ = (schema.spec.core.subschemas[goog.typeOf(x__5323__auto__)]);
+if(!((m__5324__auto__ == null))){
+return m__5324__auto__.call(null,this$);
 } else {
-var m__17497__auto____$1 = (schema.spec.core.subschemas["_"]);
-if(!((m__17497__auto____$1 == null))){
-return m__17497__auto____$1.call(null,this$);
+var m__5324__auto____$1 = (schema.spec.core.subschemas["_"]);
+if(!((m__5324__auto____$1 == null))){
+return m__5324__auto____$1.call(null,this$);
 } else {
 throw cljs.core.missing_protocol.call(null,"CoreSpec.subschemas",this$);
 }
@@ -52,14 +52,14 @@ schema.spec.core.checker = (function schema$spec$core$checker(this$,params){
 if((!((this$ == null))) && (!((this$.schema$spec$core$CoreSpec$checker$arity$2 == null)))){
 return this$.schema$spec$core$CoreSpec$checker$arity$2(this$,params);
 } else {
-var x__17496__auto__ = (((this$ == null))?null:this$);
-var m__17497__auto__ = (schema.spec.core.checker[goog.typeOf(x__17496__auto__)]);
-if(!((m__17497__auto__ == null))){
-return m__17497__auto__.call(null,this$,params);
+var x__5323__auto__ = (((this$ == null))?null:this$);
+var m__5324__auto__ = (schema.spec.core.checker[goog.typeOf(x__5323__auto__)]);
+if(!((m__5324__auto__ == null))){
+return m__5324__auto__.call(null,this$,params);
 } else {
-var m__17497__auto____$1 = (schema.spec.core.checker["_"]);
-if(!((m__17497__auto____$1 == null))){
-return m__17497__auto____$1.call(null,this$,params);
+var m__5324__auto____$1 = (schema.spec.core.checker["_"]);
+if(!((m__5324__auto____$1 == null))){
+return m__5324__auto____$1.call(null,this$,params);
 } else {
 throw cljs.core.missing_protocol.call(null,"CoreSpec.checker",this$);
 }
@@ -84,11 +84,11 @@ return null;
 } else {
 return new cljs.core.Symbol(null,"not","not",1044554643,null);
 }
-}catch (e18715){if((e18715 instanceof Object)){
-var e_SHARP_ = e18715;
+}catch (e10466){if((e10466 instanceof Object)){
+var e_SHARP_ = e10466;
 return new cljs.core.Symbol(null,"throws?","throws?",789734533,null);
 } else {
-throw e18715;
+throw e10466;
 
 }
 }})();
@@ -137,31 +137,31 @@ return res;
  * Should be called recursively on each subschema in the 'checker' method of a spec.
  * Handles caching and error wrapping behavior.
  */
-schema.spec.core.sub_checker = (function schema$spec$core$sub_checker(p__18716,p__18717){
-var map__18722 = p__18716;
-var map__18722__$1 = ((((!((map__18722 == null)))?((((map__18722.cljs$lang$protocol_mask$partition0$ & (64))) || (map__18722.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__18722):map__18722);
-var schema__$1 = cljs.core.get.call(null,map__18722__$1,new cljs.core.Keyword(null,"schema","schema",-1582001791));
-var error_wrap = cljs.core.get.call(null,map__18722__$1,new cljs.core.Keyword(null,"error-wrap","error-wrap",-1295833514));
-var map__18723 = p__18717;
-var map__18723__$1 = ((((!((map__18723 == null)))?((((map__18723.cljs$lang$protocol_mask$partition0$ & (64))) || (map__18723.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__18723):map__18723);
-var params = map__18723__$1;
-var subschema_checker = cljs.core.get.call(null,map__18723__$1,new cljs.core.Keyword(null,"subschema-checker","subschema-checker",1137701360));
-var cache = cljs.core.get.call(null,map__18723__$1,new cljs.core.Keyword(null,"cache","cache",-1237023054));
-var sub = schema.spec.core.with_cache.call(null,cache,schema__$1,((function (map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache){
+schema.spec.core.sub_checker = (function schema$spec$core$sub_checker(p__10467,p__10468){
+var map__10473 = p__10467;
+var map__10473__$1 = ((((!((map__10473 == null)))?((((map__10473.cljs$lang$protocol_mask$partition0$ & (64))) || (map__10473.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__10473):map__10473);
+var schema__$1 = cljs.core.get.call(null,map__10473__$1,new cljs.core.Keyword(null,"schema","schema",-1582001791));
+var error_wrap = cljs.core.get.call(null,map__10473__$1,new cljs.core.Keyword(null,"error-wrap","error-wrap",-1295833514));
+var map__10474 = p__10468;
+var map__10474__$1 = ((((!((map__10474 == null)))?((((map__10474.cljs$lang$protocol_mask$partition0$ & (64))) || (map__10474.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__10474):map__10474);
+var params = map__10474__$1;
+var subschema_checker = cljs.core.get.call(null,map__10474__$1,new cljs.core.Keyword(null,"subschema-checker","subschema-checker",1137701360));
+var cache = cljs.core.get.call(null,map__10474__$1,new cljs.core.Keyword(null,"cache","cache",-1237023054));
+var sub = schema.spec.core.with_cache.call(null,cache,schema__$1,((function (map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache){
 return (function (d){
-return ((function (map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache){
+return ((function (map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache){
 return (function (x){
 return cljs.core.deref.call(null,d).call(null,x);
 });
-;})(map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache))
-});})(map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache))
-,((function (map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache){
+;})(map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache))
+});})(map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache))
+,((function (map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache){
 return (function (){
 return subschema_checker.call(null,schema__$1,params);
-});})(map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache))
+});})(map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache))
 );
 if(cljs.core.truth_(error_wrap)){
-return ((function (sub,map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache){
+return ((function (sub,map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache){
 return (function (x){
 var res = sub.call(null,x);
 var temp__4423__auto__ = schema.utils.error_val.call(null,res);
@@ -172,10 +172,8 @@ return schema.utils.error.call(null,error_wrap.call(null,res));
 return res;
 }
 });
-;})(sub,map__18722,map__18722__$1,schema__$1,error_wrap,map__18723,map__18723__$1,params,subschema_checker,cache))
+;})(sub,map__10473,map__10473__$1,schema__$1,error_wrap,map__10474,map__10474__$1,params,subschema_checker,cache))
 } else {
 return sub;
 }
 });
-
-//# sourceMappingURL=core.js.map

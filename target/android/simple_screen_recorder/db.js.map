@@ -1,1 +1,0 @@
-{"version":3,"file":"\/home\/eissek87\/Clojurescript\/simple-screen-recorder\/target\/android\/simple_screen_recorder\/db.js","sources":["db.cljs"],"lineCount":8,"mappings":";AAAA;;;AAIA,mCAAA,2CAAA,9EAAKA,0IAAkBC;AAGvB,mCAAA,2CAAA,4DAAA,1IAAKC","names":["simple-screen-recorder.db\/schema","schema.core\/Str","simple-screen-recorder.db\/app-db"]}

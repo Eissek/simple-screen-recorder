@@ -6,20 +6,17 @@
             [simple-screen-recorder.subs]))
 
 (set! js/React (js/require "react-native/Libraries/react-native/react-native.js"))
+(def icon (r/adapt-react-class (js/require "react-native-vector-icons/FontAwesome")))
+;; (def linear-gradient (js/require "LinearGradient"))
+
 
 (def app-registry (.-AppRegistry js/React))
 (def text (r/adapt-react-class (.-Text js/React)))
 (def view (r/adapt-react-class (.-View js/React)))
 (def image (r/adapt-react-class (.-Image js/React)))
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight js/React)))
-(def toolbar-android (r/adapt-react-class (.-ToolbarAndroid js/React)))
-;; (def toolbar-title (r/adapat-react-class (.-ToolbarAndroid/title js/React)))
 (def stylesheet (r/adapt-react-class (.-StyleSheet js/React)))
-
 (def logo-img (require-img "./images/cljs.png"))
-(def ham-menu (require-img "./images/hamburger.svg"))
-(def ham (require-img "./images/1451347230_Hamburger.png"))
-(def ham2 (require-img "./images/1451347486_Hamburger.svg"))
 
 
 (defn widget []
@@ -42,15 +39,11 @@
                       :alignSelf "stretch"
                       :height 40
                       :justifyContent "space-around"}}
-        [image {:source ham2
-                :style {:color "black"
-                        :fill "#000"
-                        :width 20
-                        :height 30}}]
+        
         [text {:style {:color "#000"
                        :textAlign "center"
                        :fontSize 20}}
-         "Simple Screen Recorders"]]
+         "Simple Screen Recorder"]]
        ;; [toolbar-android {:title "Simple Screen Recorder"
        ;;                   :titleColor "#000"
        ;;                   :subtitle "-YYEEESssssssssss"
