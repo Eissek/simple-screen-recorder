@@ -6,10 +6,9 @@
             [simple-screen-recorder.subs]))
 
 (set! js/React (js/require "react-native/Libraries/react-native/react-native.js"))
+
 (def icon (r/adapt-react-class (js/require "react-native-vector-icons/FontAwesome")))
 ;; (def linear-gradient (js/require "LinearGradient"))
-
-
 (def app-registry (.-AppRegistry js/React))
 (def text (r/adapt-react-class (.-Text js/React)))
 (def view (r/adapt-react-class (.-View js/React)))
@@ -39,7 +38,9 @@
                       :alignSelf "stretch"
                       :height 40
                       :justifyContent "space-around"}}
-        
+        [icon {:name "hamburger"
+               :size 30
+               :color "#000"}]
         [text {:style {:color "#000"
                        :textAlign "center"
                        :fontSize 20}}
