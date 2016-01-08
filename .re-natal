@@ -1,4 +1,6 @@
 {
   "name": "SimpleScreenRecorder",
-  "modules": []
+  "modules": [
+    "react-native-vector-icons/FontAwesome"
+  ]
 }
