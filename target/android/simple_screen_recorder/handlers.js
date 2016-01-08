@@ -20,9 +20,11 @@ simple_screen_recorder.handlers.validate_schema_mw = re_frame.core.after.call(nu
 re_frame.core.register_handler.call(null,new cljs.core.Keyword(null,"initialize-db","initialize-db",230998432),simple_screen_recorder.handlers.validate_schema_mw,(function (_,___$1){
 return simple_screen_recorder.db.app_db;
 }));
-re_frame.core.register_handler.call(null,new cljs.core.Keyword(null,"set-greeting","set-greeting",-653540063),simple_screen_recorder.handlers.validate_schema_mw,(function (db,p__12566){
-var vec__12567 = p__12566;
-var _ = cljs.core.nth.call(null,vec__12567,(0),null);
-var value = cljs.core.nth.call(null,vec__12567,(1),null);
+re_frame.core.register_handler.call(null,new cljs.core.Keyword(null,"set-greeting","set-greeting",-653540063),simple_screen_recorder.handlers.validate_schema_mw,(function (db,p__20815){
+var vec__20816 = p__20815;
+var _ = cljs.core.nth.call(null,vec__20816,(0),null);
+var value = cljs.core.nth.call(null,vec__20816,(1),null);
 return cljs.core.assoc.call(null,db,new cljs.core.Keyword(null,"greeting","greeting",462222107),value);
 }));
+
+//# sourceMappingURL=handlers.js.map
