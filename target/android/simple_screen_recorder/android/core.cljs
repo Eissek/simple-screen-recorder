@@ -16,7 +16,17 @@
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight js/React)))
 (def stylesheet (r/adapt-react-class (.-StyleSheet js/React)))
 (def logo-img (require-img "./images/cljs.png"))
+(def drawer-layout-and (r/adapt-react-class (.-DrawerLayoutAndroid js/React)))
+;; (def drawer-position (r/adapt-react-class [drawer-layout-and DrawerPosition]))
+(def drawer-left (.-positions (.-DrawerLayoutAndroid js/React)))
 
+(defn nav-view []
+  [view {:style
+         {:flex 1
+          :backgroundColor "#FFF"}}
+   [text {:style
+          {:fontSize 10
+           :textAlign "left"}} "Test Drawer"]])
 
 (defn widget []
   (let [greeting (subscribe [:get-greeting])]
@@ -28,7 +38,7 @@
               :backgroundColor "#FFF"
               :margin 0
               :alignItems "center"
-              :color "#000"
+              ;; :color "#000"
               ;; :padding 10
               }}
        [view {:style {:flexDirection "row"
@@ -38,7 +48,8 @@
                       :alignSelf "stretch"
                       :height 40
                       :justifyContent "space-between"
-                      }}
+                      :borderBottomWidth 0.5
+                      :borderColor "#594626"}}
         [icon {:name "bars"
                :size 15
                :color "#000"
@@ -46,11 +57,22 @@
         [text {:style {:color "#000"
                        :textAlign "center"
                        :fontSize 15}}
-         "Simple Screen Recorder"]
+         "Simple Screen Recorders"]
         [icon {:name "ellipsis-v"
               :size 15
               :color "#000"
-               :style {:margin-right 10}}]]
+               :style {:margin-right 10}}]
+        [drawer-layout-and {:drawerWidth 300
+                            :drawerPosition (.-Left drawer-left)
+                            :renderNavigationView nav-view
+                            }]
+        ;; (r/create-element drawer-layout-and
+        ;;                   #js{}
+        ;;                   (r/as-element
+        ;;                    [:drawerWidth 300]
+        ;;                     )
+        ;;                   )
+        ]
        
        ;; [toolbar-android {:title "Simple Screen Recorder"
        ;;                   :titleColor "#000"
