@@ -20,13 +20,15 @@
 ;; (def drawer-position (r/adapt-react-class [drawer-layout-and DrawerPosition]))
 (def drawer-left (.-positions (.-DrawerLayoutAndroid js/React)))
 
-(defn nav-view []
-  [view {:style
-         {:flex 1
-          :backgroundColor "#FFF"}}
-   [text {:style
-          {:fontSize 10
-           :textAlign "left"}} "Test Drawer"]])
+(defn nav-view
+  []
+  (fn []
+    [view {:style
+           {:flex 1
+            :backgroundColor "#FFF"}}
+     [text {:style
+            {:fontSize 10
+             :textAlign "left"}} "Test Drawer"]]))
 
 (defn widget []
   (let [greeting (subscribe [:get-greeting])]

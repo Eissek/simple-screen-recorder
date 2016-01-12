@@ -17,7 +17,9 @@ simple_screen_recorder.android.core.logo_img = new cljs.core.PersistentArrayMap(
 simple_screen_recorder.android.core.drawer_layout_and = reagent.core.adapt_react_class.call(null,React.DrawerLayoutAndroid);
 simple_screen_recorder.android.core.drawer_left = React.DrawerLayoutAndroid.positions;
 simple_screen_recorder.android.core.nav_view = (function simple_screen_recorder$android$core$nav_view(){
+return (function (){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [simple_screen_recorder.android.core.view,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"flex","flex",-1425124628),(1),new cljs.core.Keyword(null,"backgroundColor","backgroundColor",1738438491),"#FFF"], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [simple_screen_recorder.android.core.text,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"fontSize","fontSize",919623033),(10),new cljs.core.Keyword(null,"textAlign","textAlign",-711351626),"left"], null)], null),"Test Drawer"], null)], null);
+});
 });
 simple_screen_recorder.android.core.widget = (function simple_screen_recorder$android$core$widget(){
 var greeting = re_frame.core.subscribe.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"get-greeting","get-greeting",-320717747)], null));
