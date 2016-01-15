@@ -30,10 +30,48 @@
             {:fontSize 10
              :textAlign "left"}} "Test Drawer"]]))
 
+
+(defn drawer-menu
+  []
+  [drawer-layout-and {:drawerWidth 300
+                      :drawerPosition (.-Left drawer-left)
+                      :renderNavigationView nav-view}
+   [view {:style
+          {:flex 1 :alignItems "center"}}
+    [text {:style
+           {:margin 10
+            :fontSize 15
+            :textAlign "right"}} "Hello"]]])
+(defn drawer-wrapper
+  []
+  )
+
+(defn header-view []
+  [view {:style {:flexDirection "row"
+                 :alignItems "center"
+                 ;; :color "#000"
+                 :backgroundColor "#FFB700"
+                 :alignSelf "stretch"
+                 :height 40
+                 :justifyContent "space-between"
+                 :borderBottomWidth 0.5
+                 :borderColor "#594626"}}
+   [icon {:name "bars"
+          :size 15
+          :color "#000"
+          :style {:margin-left 0}}]
+   [text {:style {:color "#000"
+                  :textAlign "center"
+                  :fontSize 15}}
+    "Simple Screen Recorder"]
+   [icon {:name "ellipsis-v"
+          :size 15
+          :color "#000"
+          :style {:margin-right 10}}]])
 (defn widget []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
-      
+      ;; Body view
       [view {:style
              {:flex 1
               :flexDirection "column"
@@ -43,36 +81,18 @@
               ;; :color "#000"
               ;; :padding 10
               }}
-       [view {:style {:flexDirection "row"
-                      :alignItems "center"
-                      ;; :color "#000"
-                      :backgroundColor "#FFB700"
-                      :alignSelf "stretch"
-                      :height 40
-                      :justifyContent "space-between"
-                      :borderBottomWidth 0.5
-                      :borderColor "#594626"}}
-        [icon {:name "bars"
-               :size 15
-               :color "#000"
-               :style {:margin-left 0}}]
-        [text {:style {:color "#000"
-                       :textAlign "center"
-                       :fontSize 15}}
-         "Simple Screen Recorder"]
-        [icon {:name "ellipsis-v"
-              :size 15
-              :color "#000"
-               :style {:margin-right 10}}]]
-       [drawer-layout-and {:drawerWidth 300
-                            :drawerPosition (.-Left drawer-left)
-                            :renderNavigationView nav-view}
-        [view {:style
-               {:flex 1 :alignItems "center"}}
-         [text {:style
-                {:margin 10
-                 :fontSize 15
-                 :textAlign "right"}} "Hello"]]]
+       ;; Header-view
+       [header-view]
+       ;; [drawer-menu]
+       ;; [drawer-layout-and {:drawerWidth 300
+       ;;                      :drawerPosition (.-Left drawer-left)
+       ;;                      :renderNavigationView nav-view}
+       ;;  [view {:style
+       ;;         {:flex 1 :alignItems "center"}}
+       ;;   [text {:style
+       ;;          {:margin 10
+       ;;           :fontSize 15
+       ;;           :textAlign "right"}} "Hello"]]]
        
        ;; [toolbar-android {:title "Simple Screen Recorder"
        ;;                   :titleColor "#000"
