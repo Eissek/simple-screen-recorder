@@ -59,22 +59,20 @@
         [text {:style {:color "#000"
                        :textAlign "center"
                        :fontSize 15}}
-         "Simple Screen Recorders"]
+         "Simple Screen Recorder"]
         [icon {:name "ellipsis-v"
               :size 15
               :color "#000"
-               :style {:margin-right 10}}]
-        [drawer-layout-and {:drawerWidth 300
+               :style {:margin-right 10}}]]
+       [drawer-layout-and {:drawerWidth 300
                             :drawerPosition (.-Left drawer-left)
-                            :renderNavigationView nav-view
-                            }]
-        ;; (r/create-element drawer-layout-and
-        ;;                   #js{}
-        ;;                   (r/as-element
-        ;;                    [:drawerWidth 300]
-        ;;                     )
-        ;;                   )
-        ]
+                            :renderNavigationView nav-view}
+        [view {:style
+               {:flex 1 :alignItems "center"}}
+         [text {:style
+                {:margin 10
+                 :fontSize 15
+                 :textAlign "right"}} "Hello"]]]
        
        ;; [toolbar-android {:title "Simple Screen Recorder"
        ;;                   :titleColor "#000"
