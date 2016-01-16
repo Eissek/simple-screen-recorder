@@ -16,7 +16,8 @@
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight js/React)))
 (def stylesheet (r/adapt-react-class (.-StyleSheet js/React)))
 (def logo-img (require-img "./images/cljs.png"))
-(def drawer-layout-and (r/adapt-react-class (.-DrawerLayoutAndroid js/React)))
+(def drawer-layout-object (.-DrawerLayoutAndroid js/React))
+(def drawer-layout-and (r/adapt-react-class drawer-layout-object))
 ;; (def drawer-position (r/adapt-react-class [drawer-layout-and DrawerPosition]))
 (def drawer-left (.-positions (.-DrawerLayoutAndroid js/React)))
 
@@ -42,32 +43,40 @@
            {:margin 10
             :fontSize 15
             :textAlign "right"}} "Hello"]]])
-(defn drawer-wrapper
-  []
-  )
-
+;; (defn drawer-wrapper
+;;   (with-meta drawer-menu
+;;     {:component-did-mount
+;;      ;; open-drawer
+;;      (fn [this]
+;;        (.openDrawer))
+;;      })
+;;   )
+;; (defn main-body-view
+;;   (with-meta drawer-menu 
+;;     {:component-did-mount
+;;      }))
 (defn header-view []
   [view {:style {:flexDirection "row"
-                 :alignItems "center"
-                 ;; :color "#000"
-                 :backgroundColor "#FFB700"
-                 :alignSelf "stretch"
-                 :height 40
-                 :justifyContent "space-between"
-                 :borderBottomWidth 0.5
-                 :borderColor "#594626"}}
-   [icon {:name "bars"
-          :size 15
-          :color "#000"
-          :style {:margin-left 0}}]
-   [text {:style {:color "#000"
-                  :textAlign "center"
-                  :fontSize 15}}
-    "Simple Screen Recorder"]
-   [icon {:name "ellipsis-v"
-          :size 15
-          :color "#000"
-          :style {:margin-right 10}}]])
+                   :alignItems "center"
+                   ;; :color "#000"
+                   :backgroundColor "#FFB700"
+                   :alignSelf "stretch"
+                   :height 40
+                   :justifyContent "space-between"
+                   :borderBottomWidth 0.5
+                   :borderColor "#594626"}}
+     [icon {:name "bars"
+            :size 15
+            :color "#000"
+            :style {:margin-left 0}}]
+     [text {:style {:color "#000"
+                    :textAlign "center"
+                    :fontSize 15}}
+      "Simple Screen Recorder"]
+     [icon {:name "ellipsis-v"
+            :size 15
+            :color "#000"
+            :style {:margin-right 10}}]])
 (defn widget []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
