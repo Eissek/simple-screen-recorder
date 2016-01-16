@@ -103,18 +103,7 @@
        ;;           :fontSize 15
        ;;           :textAlign "right"}} "Hello"]]]
        
-       ;; [toolbar-android {:title "Simple Screen Recorder"
-       ;;                   :titleColor "#000"
-       ;;                   :subtitle "-YYEEESssssssssss"
-       ;;                   :style {:justifyContent "center"
-       ;;                           :fontSize 5
-       ;;                           ;; :alignItems "center"
-       ;;                           :alignSelf "stretch"
-       ;;                           :textAlign "center"
-       ;;                           :flexDirection "row"
-       ;;                           :backgroundColor "#FFB700"
-       ;;                           :color "#FFF"
-       ;;                           :height 40}}]
+       
        ])))
 
 
