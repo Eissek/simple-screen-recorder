@@ -31,8 +31,7 @@
             {:fontSize 10
              :textAlign "left"}} "Test Drawer"]]))
 
-(defn drawer-menu
-  []
+(defn drawer-menu []
   [drawer-layout-and {:drawerWidth 300
                       :drawerPosition (.-Left drawer-left)
                       :renderNavigationView nav-view}
@@ -42,14 +41,14 @@
            {:margin 10
             :fontSize 15
             :textAlign "right"}} "Hello"]]])
-;; (defn drawer-wrapper
-;;   (with-meta drawer-menu
-;;     {:component-did-mount
-;;      ;; open-drawer
-;;      (fn [this]
-;;        (.openDrawer))
-;;      })
-;;   )
+(def drawer-wrapper
+  (with-meta drawer-menu
+    {:component-did-mount
+     (fn [this]
+       {:on-click #(.openDrawer this)}
+       ;; (js/console.log "TESTING")
+       )}))
+
 ;; (defn main-body-view
 ;;   (with-meta drawer-menu 
 ;;     {:component-did-mount
@@ -76,6 +75,7 @@
             :size 15
             :color "#000"
             :style {:margin-right 10}}]])
+
 (defn widget []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
@@ -91,6 +91,7 @@
               }}
        ;; Header-view
        [header-view]
+       [drawer-wrapper]
        ;; [drawer-menu]
        ;; [drawer-layout-and {:drawerWidth 300
        ;;                      :drawerPosition (.-Left drawer-left)
