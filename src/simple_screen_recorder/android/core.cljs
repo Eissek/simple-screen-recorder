@@ -19,7 +19,7 @@
 (def drawer-layout-object (.-DrawerLayoutAndroid js/React))
 (def drawer-layout-and (r/adapt-react-class drawer-layout-object))
 ;; (def drawer-position (r/adapt-react-class [drawer-layout-and DrawerPosition]))
-(def drawer-left (.-positions (.-DrawerLayoutAndroid js/React)))
+(def drawer-left (.-positions drawer-layout-object))
 
 (defn nav-view
   []
@@ -30,7 +30,6 @@
      [text {:style
             {:fontSize 10
              :textAlign "left"}} "Test Drawer"]]))
-
 
 (defn drawer-menu
   []
