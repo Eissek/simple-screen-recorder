@@ -20,6 +20,7 @@
 (def drawer-layout-and (r/adapt-react-class drawer-layout-object))
 ;; (def drawer-position (r/adapt-react-class [drawer-layout-and DrawerPosition]))
 (def drawer-left (.-positions drawer-layout-object))
+(def touch-opacity (r/adapt-react-class (.-TouchableOpacity js/React)))
 
 (defn nav-view
   []
@@ -41,40 +42,69 @@
            {:margin 10
             :fontSize 15
             :textAlign "right"}} "Hello"]]])
-(def drawer-wrapper
-  (with-meta drawer-menu
-    {:component-did-mount
-     (fn [this]
-       {:on-click #(.openDrawer this)}
-       ;; (js/console.log "TESTING")
-       )}))
 
-;; (defn main-body-view
-;;   (with-meta drawer-menu 
+;; (def drawer-wrapper
+;;   (with-meta drawer-menu
 ;;     {:component-did-mount
-;;      }))
+;;      (fn [this]
+;;        {:on-click #(.openDrawer this)}
+;;        ;; (js/console.log "TESTING")
+;;        )}))
+
+;; (defn test-menu []
+;;   [icon {:name "bars"
+;;               :size 15
+;;               :color "#000"
+;;               :style {:margin-left 0}
+;;          ;; :on-click #(.openDrawer this)
+;;               }])
+
+(defn bars-menu []
+  (this-as this
+           [icon {:name "bars"
+                  :size 15
+                  :color "#000"
+                  :style {:margin-left 0}
+                  ;; :on-click #(.openDrawer [drawer-menu])
+                  :on-click #([text {:style {:color "#FFF"}}])
+                  }]))
+;; (def bars-menu
+;;   (with-meta drawer-menu
+;;     {:component-did-mount
+;;      (fn [this]
+;;        [icon {:name "bars"
+;;               :size 15
+;;               :color "#000"
+;;               :style {:margin-left 0}
+;;               :on-click #(.openDrawer this)
+;;               }]
+;;        )}))
 (defn header-view []
   [view {:style {:flexDirection "row"
-                   :alignItems "center"
-                   ;; :color "#000"
-                   :backgroundColor "#FFB700"
-                   :alignSelf "stretch"
-                   :height 40
-                   :justifyContent "space-between"
-                   :borderBottomWidth 0.5
-                   :borderColor "#594626"}}
-     [icon {:name "bars"
-            :size 15
-            :color "#000"
-            :style {:margin-left 0}}]
-     [text {:style {:color "#000"
-                    :textAlign "center"
-                    :fontSize 15}}
-      "Simple Screen Recorder"]
-     [icon {:name "ellipsis-v"
-            :size 15
-            :color "#000"
-            :style {:margin-right 10}}]])
+                 :alignItems "center"
+                 ;; :color "#000"
+                 :backgroundColor "#FFB700"
+                 :alignSelf "stretch"
+                 :height 200
+                 :justifyContent "space-between"
+                 :borderBottomWidth 0.5
+                 :borderColor "#594626"}}
+   ;; [icon {:name "bars"
+   ;;        :size 15
+   ;;        :color "#000"
+   ;;        :style {:margin-left 0}
+   ;;        :on-click #([text {:style {:color "#FFF"}}])
+   ;;        }]
+   ;; [test-menu]
+   ;; [bars-menu]
+   [text {:style {:color "#000"
+                  :textAlign "center"
+                  :fontSize 15}}
+    "Simple Screen Recorders"]
+   [icon {:name "ellipsis-v"
+          :size 15
+          :color "#000"
+          :style {:margin-right 10}}]])
 
 (defn widget []
   (let [greeting (subscribe [:get-greeting])]
@@ -91,8 +121,8 @@
               }}
        ;; Header-view
        [header-view]
-       [drawer-wrapper]
-       ;; [drawer-menu]
+       ;; [drawer-wrapper]
+       [drawer-menu]
        ;; [drawer-layout-and {:drawerWidth 300
        ;;                      :drawerPosition (.-Left drawer-left)
        ;;                      :renderNavigationView nav-view}
