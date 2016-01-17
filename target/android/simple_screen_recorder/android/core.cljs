@@ -21,7 +21,7 @@
 ;; (def drawer-position (r/adapt-react-class [drawer-layout-and DrawerPosition]))
 (def drawer-left (.-positions drawer-layout-object))
 (def touch-opacity (r/adapt-react-class (.-TouchableOpacity js/React)))
-(def alert (r/adapt--react-class (.-Alert js/React)))
+(def alert-dialog (.-Alert js/React))
 
 (defn nav-view
   []
@@ -65,7 +65,8 @@
     ;; [text {:style {:color "#FFF"}} "HEEEEEEEEEEY"]
     ;; [view [text {:style {:color "#FFF"}}]]
     ;; (js/console.log "HEEEEEEEEEEY")
-    ))
+    (.alert  alert-dialog "Title here" "My Message")))
+
 (defn bars-menu []
   (this-as this
            [touch-opacity {:onPress (show-text)}

@@ -18,7 +18,7 @@ simple_screen_recorder.android.core.drawer_layout_object = React.DrawerLayoutAnd
 simple_screen_recorder.android.core.drawer_layout_and = reagent.core.adapt_react_class.call(null,simple_screen_recorder.android.core.drawer_layout_object);
 simple_screen_recorder.android.core.drawer_left = simple_screen_recorder.android.core.drawer_layout_object.positions;
 simple_screen_recorder.android.core.touch_opacity = reagent.core.adapt_react_class.call(null,React.TouchableOpacity);
-simple_screen_recorder.android.core.alert = reagent.core.adapt__react_class.call(null,React.Alert);
+simple_screen_recorder.android.core.alert_dialog = React.Alert;
 simple_screen_recorder.android.core.nav_view = (function simple_screen_recorder$android$core$nav_view(){
 return (function (){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [simple_screen_recorder.android.core.view,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"flex","flex",-1425124628),(1),new cljs.core.Keyword(null,"backgroundColor","backgroundColor",1738438491),"#FFF"], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [simple_screen_recorder.android.core.text,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"fontSize","fontSize",919623033),(10),new cljs.core.Keyword(null,"textAlign","textAlign",-711351626),"left"], null)], null),"Test Drawer"], null)], null);
@@ -29,7 +29,7 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
 });
 simple_screen_recorder.android.core.show_text = (function simple_screen_recorder$android$core$show_text(){
 return (function (){
-return null;
+return simple_screen_recorder.android.core.alert_dialog.alert("Title here","My Message");
 });
 });
 simple_screen_recorder.android.core.bars_menu = (function simple_screen_recorder$android$core$bars_menu(){
