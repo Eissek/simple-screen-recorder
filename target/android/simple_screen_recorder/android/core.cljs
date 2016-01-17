@@ -21,6 +21,7 @@
 ;; (def drawer-position (r/adapt-react-class [drawer-layout-and DrawerPosition]))
 (def drawer-left (.-positions drawer-layout-object))
 (def touch-opacity (r/adapt-react-class (.-TouchableOpacity js/React)))
+(def alert (r/adapt--react-class (.-Alert js/React)))
 
 (defn nav-view
   []
@@ -59,15 +60,22 @@
 ;;          ;; :on-click #(.openDrawer this)
 ;;               }])
 
+(defn show-text []
+  (fn []
+    ;; [text {:style {:color "#FFF"}} "HEEEEEEEEEEY"]
+    ;; [view [text {:style {:color "#FFF"}}]]
+    ;; (js/console.log "HEEEEEEEEEEY")
+    ))
 (defn bars-menu []
   (this-as this
-           [icon {:name "bars"
-                  :size 15
-                  :color "#000"
-                  :style {:margin-left 0}
-                  ;; :on-click #(.openDrawer [drawer-menu])
-                  :on-click #([text {:style {:color "#FFF"}}])
-                  }]))
+           [touch-opacity {:onPress (show-text)}
+            [icon {:name "bars"
+                   :size 15
+                   :color "#000"
+                   :style {:margin-left 0}
+                   ;; :on-click #(.openDrawer [drawer-menu])
+                   ;; :on-click #([text {:style {:color "#FFF"}}])
+                   }]]))
 ;; (def bars-menu
 ;;   (with-meta drawer-menu
 ;;     {:component-did-mount
@@ -95,8 +103,7 @@
    ;;        :style {:margin-left 0}
    ;;        :on-click #([text {:style {:color "#FFF"}}])
    ;;        }]
-   ;; [test-menu]
-   ;; [bars-menu]
+   [bars-menu]
    [text {:style {:color "#000"
                   :textAlign "center"
                   :fontSize 15}}
