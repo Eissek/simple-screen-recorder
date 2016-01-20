@@ -142,10 +142,11 @@
     ;; (test-this)
     :display-name "the-view"
     :reagent-render
-    [view {:style {:flex 1 :backgroundColor "#1E750E"}}
-     [text {:style {:fontSize 10
+    [view {:style {:flex 1 :backgroundColor "#1E750E" :height 50}}
+     [text {:style {:flex 1
+                    :fontSize 20
                     :margin 5
-                    :color "#000"
+                    :color "#FFF"
                     :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]
     }))
 
@@ -177,21 +178,17 @@
       ;;                    :fontSize 15
       ;;                    :textAlign "right"}} "HELLO WORLD"]]
       ;;    ])
-
-      
-
-      
-      
+  
       [drawer-layout-and {:drawerWidth 10
                           :drawerPosition js/React.DrawerLayoutAndroid.positions.Left
                           :renderNavigationView the-view }
                [view {:style
-                      {:flex 1 :alignItems "center"}}
+                      {:flex 1 :alignItems "center" :height 100}}
                 [text {:style
                        {:margin 2
                         :color "#000"
-                        :fontSize 15
-                        :textAlign "right"}} "Hello"]]]
+                        :fontSize 24
+                        :textAlign "left"}} "Hello"]]]
       )))
 
 
