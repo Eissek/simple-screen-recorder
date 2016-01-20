@@ -44,7 +44,7 @@ goog.addDependency("../re_frame/core.js", ['re_frame.core'], ['cljs.core', 're_f
 goog.addDependency("../simple_screen_recorder/handlers.js", ['simple_screen_recorder.handlers'], ['schema.core', 'cljs.core', 'simple_screen_recorder.db', 're_frame.core']);
 goog.addDependency("../simple_screen_recorder/subs.js", ['simple_screen_recorder.subs'], ['cljs.core', 're_frame.core']);
 goog.addDependency("../simple_screen_recorder/android/core.js", ['simple_screen_recorder.android.core'], ['reagent.core', 'simple_screen_recorder.handlers', 'cljs.core', 'simple_screen_recorder.subs', 're_frame.core']);
-goog.addDependency("../env/android/main.js", ['env.android.main'], ['simple_screen_recorder.android.core', 'reagent.core', 'cljs.core', 'figwheel.client']);
+goog.addDependency("../env/android/main.js", ['env.android.main'], ['simple_screen_recorder.android.core', 'cljs.core', 'figwheel.client']);
 goog.addDependency("../figwheel/connect.js", ['figwheel.connect'], ['cljs.core', 'figwheel.client', 'env.android.main', 'figwheel.client.utils']);
 goog.addDependency("../simple_screen_recorder/ios/core.js", ['simple_screen_recorder.ios.core'], ['reagent.core', 'simple_screen_recorder.handlers', 'cljs.core', 'simple_screen_recorder.subs', 're_frame.core']);
-goog.addDependency("../env/ios/main.js", ['env.ios.main'], ['reagent.core', 'cljs.core', 'simple_screen_recorder.ios.core', 'figwheel.client']);
+goog.addDependency("../env/ios/main.js", ['env.ios.main'], ['cljs.core', 'simple_screen_recorder.ios.core', 'figwheel.client']);

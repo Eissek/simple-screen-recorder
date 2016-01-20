@@ -6,46 +6,29 @@
 
 var CLOSURE_UNCOMPILED_DEFINES = null;
 
+var React = require('react-native');
+
 var config = {
     basePath: "target/",
-    googBasePath: 'goog/'
+    googBasePath: 'goog/',
+    splash: React.createClass({
+        render: function () {
+            var plainStyle = {flex: 1, alignItems: 'center', justifyContent: 'center'};
+            return (
+                <React.View style={plainStyle}>
+                    <React.Text>Waiting for Figwheel to load files.</React.Text>
+                </React.View>
+            );
+        }
+    })
 };
 
-var React = require('react-native');
 var self;
 var scriptQueue = [];
 var server = null; // will be set dynamically
 var fileBasePath = null; // will be set dynamically
 var evaluate = eval; // This is needed, direct calls to eval does not work (RN packager???)
 var externalModules = {};
-var evalListeners = []; // functions to be called when a script is evaluated
-
-var figwheelApp = function (platform, devHost) {
-    return React.createClass({
-        getInitialState: function () {
-            return {loaded: false}
-        },
-        render: function () {
-            if (!this.state.loaded) {
-                var plainStyle = {flex: 1, alignItems: 'center', justifyContent: 'center'};
-                return (
-                    <React.View style={plainStyle}>
-                        <React.Text>Waiting for Figwheel to load files.</React.Text>
-                    </React.View>
-                );
-            }
-            return this.state.root;
-        },
-        componentDidMount: function () {
-            var app = this;
-            if (typeof goog === "undefined") {
-                loadApp(platform, devHost, function(appRoot) {
-                    app.setState({root: appRoot, loaded: true})
-                });
-            }
-        }
-    })
-};
 
 // evaluates js code ensuring proper ordering
 function customEval(url, javascript, success, error) {
@@ -55,9 +38,9 @@ function customEval(url, javascript, success, error) {
                 evaluate(javascript);
                 console.info('Evaluated: ' + url);
                 scriptQueue.shift();
-                evalListeners.forEach(function (listener) {
-                    listener(url)
-                });
+                if (url.indexOf('jsloader') > -1) {
+                    shimJsLoader();
+                }
                 success();
             } catch (e) {
                 console.error('Evaluation error in: ' + url);
@@ -110,6 +93,7 @@ function importJs(src, success, error) {
     asyncImportScripts(filePath, success, error);
 }
 
+
 function interceptRequire() {
     var oldRequire = window.require;
     console.info("Shimming require");
@@ -122,28 +106,9 @@ function interceptRequire() {
     };
 }
 
-// do not show debug messages in yellow box
-function debugToLog() {
-    console.debug = console.log;
-}
-
-function loadApp(platform, devHost, onLoadCb) {
+function loadApp(platform, devHost) {
     server = "http://" + devHost + ":8081";
     fileBasePath = config.basePath + platform;
-
-    evalListeners.push(function (url) {
-        if (url.indexOf('jsloader') > -1) {
-            shimJsLoader();
-        }
-    });
-
-    // callback when app is ready to get the reloadable component
-    evalListeners.push(function (url) {
-        if (url.indexOf('main.js') > -1) {
-            onLoadCb(env[platform].main.root_el);
-            console.log('Done loading Clojure app');
-        }
-    });
 
     if (typeof goog === "undefined") {
         console.log('Loading Closure base.');
@@ -153,20 +118,25 @@ function loadApp(platform, devHost, onLoadCb) {
             fakeLocalStorageAndDocument();
             importJs('cljs_deps.js');
             importJs('goog/deps.js', function () {
-                debugToLog();
+
                 // This is needed because of RN packager
                 // seriously React packager? why.
                 var googreq = goog.require;
 
                 googreq('figwheel.connect');
+                googreq('env.' + platform + '.main');
+
+                console.log('Done loading Clojure app');
             });
         });
     }
 }
 
 function startApp(appName, platform, devHost) {
-    React.AppRegistry.registerComponent(
-        appName, () => figwheelApp(platform, devHost));
+    React.AppRegistry.registerComponent(appName, () => config.splash);
+    if (typeof goog === "undefined") {
+        loadApp(platform, devHost);
+    }
 }
 
 function withModules(moduleById) {
@@ -208,13 +178,6 @@ function fakeLocalStorageAndDocument() {
     }
     console.debug = console.warn;
     window.addEventListener = function () {
-    };
-    // make figwheel think that heads-up-display divs are there
-    window.document.querySelector = function (selector) {
-        return {};
-    };
-    window.document.getElementById = function (id) {
-        return {style:{}};
     };
 }
 

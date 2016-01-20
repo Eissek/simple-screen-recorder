@@ -1,2 +1,2 @@
-var modules={'react-native': require('react-native')};modules['react-native-vector-icons/FontAwesome']=require('react-native-vector-icons/FontAwesome');modules['./images/cljs.png']=require('./images/cljs.png');
+var modules={'react-native': require('react-native')};modules['react-native-vector-icons/FontAwesome']=require('react-native-vector-icons/FontAwesome');
 require('figwheel-bridge').withModules(modules).start('SimpleScreenRecorder','android','10.0.3.2');
