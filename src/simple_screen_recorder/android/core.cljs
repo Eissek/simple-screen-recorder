@@ -1,11 +1,12 @@
 (ns ^:figwheel-load simple-screen-recorder.android.core
-  (:require-macros [env.require-img :refer [require-img]])
+  ;; (:require-macros [env.require-img :refer [require-img]])
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
             [simple-screen-recorder.handlers]
             [simple-screen-recorder.subs]))
 
-(set! js/React (js/require "react-native/Libraries/react-native/react-native.js"))
+;; (set! js/React (js/require "react-native/Libraries/react-native/react-native.js"))
+(set! js/React (js/require "react-native"))
 
 (def icon (r/adapt-react-class (js/require "react-native-vector-icons/FontAwesome")))
 ;; (def linear-gradient (js/require "LinearGradient"))
@@ -15,7 +16,7 @@
 (def image (r/adapt-react-class (.-Image js/React)))
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight js/React)))
 (def stylesheet (r/adapt-react-class (.-StyleSheet js/React)))
-(def logo-img (require-img "./images/cljs.png"))
+;; (def logo-img (require-img "./images/cljs.png"))
 (def drawer-layout-object (.-DrawerLayoutAndroid js/React))
 (def drawer-layout-and (r/adapt-react-class drawer-layout-object))
 
@@ -24,117 +25,117 @@
 (def touch-opacity (r/adapt-react-class (.-TouchableOpacity js/React)))
 (def alert-dialog (.-Alert js/React))
 
-(defn nav-view []
-  (fn []
-    [view {:style
-           {:flex 1
-            :backgroundColor "#FFF"}}
-     [text {:style
-            {:fontSize 10
-             :margin 10
-             :color "#000"
-             :textAlign "left"}} "Test Drawer"]]))
+;; (defn nav-view []
+;;   (fn []
+;;     [view {:style
+;;            {:flex 1
+;;             :backgroundColor "#FFF"}}
+;;      [text {:style
+;;             {:fontSize 10
+;;              :margin 10
+;;              :color "#000"
+;;              :textAlign "left"}} "Test Drawer"]]))
 
-(defn drawer-menu []
-  [drawer-layout-and {:drawerWidth 300
-                      :drawerPosition (.-Left drawer-left)
-                      :renderNavigationView nav-view}
-   [view {:style
-          {:flex 1 :alignItems "center"}}
-    [text {:style
-           {:margin 10
-            :fontSize 15
-            :textAlign "right"}} "Hello"]]])
+;; (defn drawer-menu []
+;;   [drawer-layout-and {:drawerWidth 300
+;;                       :drawerPosition (.-Left drawer-left)
+;;                       :renderNavigationView nav-view}
+;;    [view {:style
+;;           {:flex 1 :alignItems "center"}}
+;;     [text {:style
+;;            {:margin 10
+;;             :fontSize 15
+;;             :textAlign "right"}} "Hello"]]])
 
-(defn show-text []
-  (fn []
-    (.alert  alert-dialog "Title here" "My Message")))
+;; (defn show-text []
+;;   (fn []
+;;     (.alert  alert-dialog "Title here" "My Message")))
+
+
+;; ;; (defn bars-menu []
+;; ;;   [touch-opacity {:onPress (my-drawer-menu)}
+;; ;;    [icon {:name "bars"
+;; ;;           :size 15
+;; ;;           :color "#000"
+;; ;;           :style {:margin-left 0}
+;; ;;           ;; :on-click #(.openDrawer [drawer-menu])
+;; ;;           }]]
+;; ;;   ;; (this-as this )
+;; ;;   )
+
+;; (defn test-this []
+;;   (.alert  alert-dialog "Title heress" "Test Messassssge"))
+
+;; ;; (def bars-menu
+;; ;;   ;; Should return drawer-menu
+;; ;;   (with-meta drawer-menu
+;; ;;     {:component-did-mount
+;; ;;      (fn [this]
+;; ;;        (.alert  alert-dialog "Title heress" "My Message"))
+;; ;;      }))
 
 
 ;; (defn bars-menu []
-;;   [touch-opacity {:onPress (my-drawer-menu)}
+;;   (r/create-class
+;;    {:component-did-mount
+;;     (test-this)
+;;     :display-name "bars-menu"
+;;     :reagent-render
+;;     (fn []
+;;       ;; (.alert  alert-dialog "Title heress" "My Message")
+;;       )}))
+
+;; (defn bars [drawer]
+;;   [touch-opacity {:onPress bars-menu}
 ;;    [icon {:name "bars"
 ;;           :size 15
 ;;           :color "#000"
 ;;           :style {:margin-left 0}
-;;           ;; :on-click #(.openDrawer [drawer-menu])
-;;           }]]
-;;   ;; (this-as this )
-;;   )
+;;           }]])
+;; ;; (def bars-menu
+;; ;;   (with-meta drawer-menu
+;; ;;     {:component-did-mount
+;; ;;      (fn [this]
+;; ;;        [icon {:name "bars"
+;; ;;               :size 15
+;; ;;               :color "#000"
+;; ;;               :style {:margin-left 0}
+;; ;;               :on-click #(.openDrawer this)
+;; ;;               }]
+;; ;;        )}))
+;; (defn header-view []
+;;   [view {:style {:flexDirection "row"
+;;                  :alignItems "center"
+;;                  ;; :color "#000"
+;;                  :backgroundColor "#FFB700"
+;;                  :alignSelf "stretch"
+;;                  :height 200
+;;                  :justifyContent "space-between"
+;;                  :borderBottomWidth 0.5
+;;                  :borderColor "#594626"}}
+;;    ;; [icon {:name "bars"
+;;    ;;        :size 15
+;;    ;;        :color "#000"
+;;    ;;        :style {:margin-left 0}
+;;    ;;        :on-click #([text {:style {:color "#FFF"}}])
+;;    ;;        }]
+;;    ;; [bars-menu]
+;;    [bars bars-menu]
+;;    [text {:style {:color "#000"
+;;                   :textAlign "center"
+;;                   :fontSize 15}}
+;;     "Simple Screen Recorders"]
+;;    [icon {:name "ellipsis-v"
+;;           :size 15
+;;           :color "#000"
+;;           :style {:margin-right 10}}]])
 
-(defn test-this []
-  (.alert  alert-dialog "Title heress" "Test Messassssge"))
-
-;; (def bars-menu
-;;   ;; Should return drawer-menu
-;;   (with-meta drawer-menu
-;;     {:component-did-mount
-;;      (fn [this]
-;;        (.alert  alert-dialog "Title heress" "My Message"))
-;;      }))
-
-
-(defn bars-menu []
-  (r/create-class
-   {:component-did-mount
-    (test-this)
-    :display-name "bars-menu"
-    :reagent-render
-    (fn []
-      ;; (.alert  alert-dialog "Title heress" "My Message")
-      )}))
-
-(defn bars [drawer]
-  [touch-opacity {:onPress bars-menu}
-   [icon {:name "bars"
-          :size 15
-          :color "#000"
-          :style {:margin-left 0}
-          }]])
-;; (def bars-menu
-;;   (with-meta drawer-menu
-;;     {:component-did-mount
-;;      (fn [this]
-;;        [icon {:name "bars"
-;;               :size 15
-;;               :color "#000"
-;;               :style {:margin-left 0}
-;;               :on-click #(.openDrawer this)
-;;               }]
-;;        )}))
-(defn header-view []
-  [view {:style {:flexDirection "row"
-                 :alignItems "center"
-                 ;; :color "#000"
-                 :backgroundColor "#FFB700"
-                 :alignSelf "stretch"
-                 :height 200
-                 :justifyContent "space-between"
-                 :borderBottomWidth 0.5
-                 :borderColor "#594626"}}
-   ;; [icon {:name "bars"
-   ;;        :size 15
-   ;;        :color "#000"
-   ;;        :style {:margin-left 0}
-   ;;        :on-click #([text {:style {:color "#FFF"}}])
-   ;;        }]
-   ;; [bars-menu]
-   [bars bars-menu]
-   [text {:style {:color "#000"
-                  :textAlign "center"
-                  :fontSize 15}}
-    "Simple Screen Recorders"]
-   [icon {:name "ellipsis-v"
-          :size 15
-          :color "#000"
-          :style {:margin-right 10}}]])
-
-(defn my-view []
-  [view {:style {:flex 1 :backgroundColor "#FFF"}}
-   [text {:style {:fontSize 10
-                  :margin 10
-                  :color "#000"
-                  :textAlign "left"}} "Test Drawer"]])
+;; (defn my-view []
+;;   [view {:style {:flex 1 :backgroundColor "#FFF"}}
+;;    [text {:style {:fontSize 10
+;;                   :margin 10
+;;                   :color "#000"
+;;                   :textAlign "left"}} "Test Drawer"]])
 
 (defn the-view []
   (r/create-class
@@ -150,7 +151,7 @@
                     :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]
     }))
 
-(defn widget []
+(defn app-root []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
       ;; Body view
@@ -179,7 +180,7 @@
       ;;                    :textAlign "right"}} "HELLO WORLD"]]
       ;;    ])
   
-      [drawer-layout-and {:drawerWidth 10
+      [drawer-layout-and {:drawerWidth 100
                           :drawerPosition js/React.DrawerLayoutAndroid.positions.Left
                           :renderNavigationView the-view }
                [view {:style
@@ -194,9 +195,15 @@
 
 
 ;; [image {:source logo-img :style  {:width 30 :height 30 :marginBottom 10}}]
-(defn mount-root []
-      (r/render [widget] 1))
 
-(defn ^:export init []
+
+(defn init []
       (dispatch-sync [:initialize-db])
-      (.registerRunnable app-registry "SimpleScreenRecorder" #(mount-root)))
+      (.registerComponent app-registry "SimpleScreenRecorder" #(r/reactify-component app-root)))
+
+;; (defn mount-root []
+;;       (r/render [widget] 1))
+
+;; (defn ^:export init []
+;;   (dispatch-sync [:initialize-db])
+;;   (.registerRunnable app-registry "SimpleScreenRecorder" #(mount-root)))
