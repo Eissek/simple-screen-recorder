@@ -151,14 +151,46 @@
                            :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])
     }))
 
-(def test-view
-  (fn []
-    [view {:style {:flex 1 :backgroundColor "#FFFFFF"}}
-     [text {:style {:flex 1
-                    :fontSize 20
-                    :margin 5
-                    :color "#FFF"
-                    :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]))
+(defn test-view []
+  (fn [] [view {:style {:flex 1 :backgroundColor "#FFFFFF"}}
+          [text {:style {:flex 1
+                         :fontSize 20
+                         :margin 5
+                         :color "#FFF"
+                         :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]))
+
+(defn a-nav-view []
+  [view {:style {:flex 1 :backgroundColor "#FFFFFF"}}
+          [text {:style {:flex 1
+                         :fontSize 20
+                         :margin 5
+                         :color "#FFF"
+                         :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])
+
+(defn test-view2 []
+  (r/as-element
+   [view {:style {:flex 1 :backgroundColor "#1E750E"}}
+    [text {:style {:flex 1
+                   :fontSize 20
+                   :margin 5
+                   :color "#FFF"
+                   :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]))
+
+(defn view3 []
+  (let [menu-view (r/as-element
+                   [view {:style {:flex 1 :backgroundColor "#1E750E"}}
+                    [text {:style {:flex 1
+                                   :fontSize 20
+                                   :margin 5
+                                   :color "#FFF"
+                                   :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])]
+    (fn [] menu-view)))
+
+(def side-view
+  (with-meta a-nav-view
+    {:reagent-render
+     (fn [this]
+       (this))}))
 
 (defn app-root []
   (let [greeting (subscribe [:get-greeting])]
@@ -191,14 +223,14 @@
       
       [drawer-layout-and {:drawerWidth 300
                           :drawerPosition js/React.DrawerLayoutAndroid.positions.Left
-                          :renderNavigationView (the-view) }
+                          :renderNavigationView (view3) }
                [view {:style
                       {:flex 1 :alignItems "center"}}
                 [text {:style
                        {:margin 2
                         :color "#000"
                         :fontSize 24
-                        :textAlign "left"}} "Hello Worldssss"]]]
+                        :textAlign "left"}} "Hello World"]]]
       )))
 
 
