@@ -143,13 +143,22 @@
     ;; (test-this)
     :display-name "the-view"
     :reagent-render
-    [view {:style {:flex 1 :backgroundColor "#1E750E" :height 50}}
+    (fn [] [view {:style {:flex 1 :backgroundColor "#1E750E"}}
+            [text {:style {:flex 1
+                           :fontSize 20
+                           :margin 5
+                           :color "#FFF"
+                           :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])
+    }))
+
+(def test-view
+  (fn []
+    [view {:style {:flex 1 :backgroundColor "#FFFFFF"}}
      [text {:style {:flex 1
                     :fontSize 20
                     :margin 5
                     :color "#FFF"
-                    :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]
-    }))
+                    :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]))
 
 (defn app-root []
   (let [greeting (subscribe [:get-greeting])]
@@ -179,17 +188,17 @@
       ;;                    :fontSize 15
       ;;                    :textAlign "right"}} "HELLO WORLD"]]
       ;;    ])
-  
-      [drawer-layout-and {:drawerWidth 100
+      
+      [drawer-layout-and {:drawerWidth 300
                           :drawerPosition js/React.DrawerLayoutAndroid.positions.Left
-                          :renderNavigationView the-view }
+                          :renderNavigationView (the-view) }
                [view {:style
-                      {:flex 1 :alignItems "center" :height 100}}
+                      {:flex 1 :alignItems "center"}}
                 [text {:style
                        {:margin 2
                         :color "#000"
                         :fontSize 24
-                        :textAlign "left"}} "Hello"]]]
+                        :textAlign "left"}} "Hello Worldssss"]]]
       )))
 
 
