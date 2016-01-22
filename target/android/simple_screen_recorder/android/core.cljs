@@ -83,32 +83,34 @@
 ;; ;;               :on-click #(.openDrawer this)
 ;; ;;               }]
 ;; ;;        )}))
-;; (defn header-view []
-;;   [view {:style {:flexDirection "row"
-;;                  :alignItems "center"
-;;                  ;; :color "#000"
-;;                  :backgroundColor "#FFB700"
-;;                  :alignSelf "stretch"
-;;                  :height 200
-;;                  :justifyContent "space-between"
-;;                  :borderBottomWidth 0.5
-;;                  :borderColor "#594626"}}
-;;    ;; [icon {:name "bars"
-;;    ;;        :size 15
-;;    ;;        :color "#000"
-;;    ;;        :style {:margin-left 0}
-;;    ;;        :on-click #([text {:style {:color "#FFF"}}])
-;;    ;;        }]
-;;    ;; [bars-menu]
-;;    [bars bars-menu]
-;;    [text {:style {:color "#000"
-;;                   :textAlign "center"
-;;                   :fontSize 15}}
-;;     "Simple Screen Recorders"]
-;;    [icon {:name "ellipsis-v"
-;;           :size 15
-;;           :color "#000"
-;;           :style {:margin-right 10}}]])
+
+(defn header-view []
+  [view {:style {:flexDirection "row"
+                 :alignItems "center"
+                 ;; :color "#000"
+                 :backgroundColor "#FFB700"
+                 :alignSelf "stretch"
+                 :height 40
+                 :justifyContent "space-between"
+                 :borderBottomWidth 0.5
+                 :borderColor "#594626"}}
+   ;; [icon {:name "bars"
+   ;;        :size 15
+   ;;        :color "#000"
+   ;;        :style {:margin-left 0}
+   ;;        :on-click #([text {:style {:color "#FFF"}}])
+   ;;        }]
+   ;; [bars-menu]
+   ;; [bars bars-menu]
+   ;; [text {:style {:color "#000"
+   ;;                :textAlign "center"
+   ;;                :fontSize 15}}
+   ;;  "Simple Screen Recorders"]
+   ;; [icon {:name "ellipsis-v"
+   ;;        :size 15
+   ;;        :color "#000"
+   ;;        :style {:margin-right 10}}]
+   ])
 
 
 
@@ -121,7 +123,6 @@
                                    :color "#FFF"
                                    :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])]
     (fn [] menu-view)))
-
 
 
 (defn app-root []
@@ -140,22 +141,11 @@
       ;;  ;; Header-view
       ;;  ;; [header-view]
       ;;  ]
-
-      ;; (let [drawer (r/adapt-react-class (.-DrawerLayoutAndroid js/React))]
-      ;;   [drawer {:drawerWidth 5
-      ;;            :drawerPosition (.-Left (.-positions drawer))
-      ;;            ;; (.-Left (.-positions drawer-layout-object))
-      ;;            :renderNavigationView nav-view}
-      ;;    [view {:style {:flex 1 :alignItems "center"}}
-      ;;     [text {:style {:margin 10
-      ;;                    :color "#000"
-      ;;                    :fontSize 15
-      ;;                    :textAlign "right"}} "HELLO WORLD"]]
-      ;;    ])
       
       [drawer-layout-and {:drawerWidth 300
                           :drawerPosition js/React.DrawerLayoutAndroid.positions.Left
                           :renderNavigationView (view3) }
+       [header-view]
                [view {:style
                       {:flex 1 :alignItems "center"}}
                 [text {:style
