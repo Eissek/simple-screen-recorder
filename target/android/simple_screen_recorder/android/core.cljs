@@ -25,27 +25,7 @@
 (def touch-opacity (r/adapt-react-class (.-TouchableOpacity js/React)))
 (def alert-dialog (.-Alert js/React))
 
-;; (defn nav-view []
-;;   (fn []
-;;     [view {:style
-;;            {:flex 1
-;;             :backgroundColor "#FFF"}}
-;;      [text {:style
-;;             {:fontSize 10
-;;              :margin 10
-;;              :color "#000"
-;;              :textAlign "left"}} "Test Drawer"]]))
 
-;; (defn drawer-menu []
-;;   [drawer-layout-and {:drawerWidth 300
-;;                       :drawerPosition (.-Left drawer-left)
-;;                       :renderNavigationView nav-view}
-;;    [view {:style
-;;           {:flex 1 :alignItems "center"}}
-;;     [text {:style
-;;            {:margin 10
-;;             :fontSize 15
-;;             :textAlign "right"}} "Hello"]]])
 
 ;; (defn show-text []
 ;;   (fn []
@@ -130,51 +110,7 @@
 ;;           :color "#000"
 ;;           :style {:margin-right 10}}]])
 
-;; (defn my-view []
-;;   [view {:style {:flex 1 :backgroundColor "#FFF"}}
-;;    [text {:style {:fontSize 10
-;;                   :margin 10
-;;                   :color "#000"
-;;                   :textAlign "left"}} "Test Drawer"]])
 
-(defn the-view []
-  (r/create-class
-   {;; :component-did-mount
-    ;; (test-this)
-    :display-name "the-view"
-    :reagent-render
-    (fn [] [view {:style {:flex 1 :backgroundColor "#1E750E"}}
-            [text {:style {:flex 1
-                           :fontSize 20
-                           :margin 5
-                           :color "#FFF"
-                           :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])
-    }))
-
-(defn test-view []
-  (fn [] [view {:style {:flex 1 :backgroundColor "#FFFFFF"}}
-          [text {:style {:flex 1
-                         :fontSize 20
-                         :margin 5
-                         :color "#FFF"
-                         :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]))
-
-(defn a-nav-view []
-  [view {:style {:flex 1 :backgroundColor "#FFFFFF"}}
-          [text {:style {:flex 1
-                         :fontSize 20
-                         :margin 5
-                         :color "#FFF"
-                         :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])
-
-(defn test-view2 []
-  (r/as-element
-   [view {:style {:flex 1 :backgroundColor "#1E750E"}}
-    [text {:style {:flex 1
-                   :fontSize 20
-                   :margin 5
-                   :color "#FFF"
-                   :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]]))
 
 (defn view3 []
   (let [menu-view (r/as-element
@@ -186,11 +122,7 @@
                                    :textAlign "left"}} "Test Drawer WOOOOOOOOOO HSHSHSHHSSNSN"]])]
     (fn [] menu-view)))
 
-(def side-view
-  (with-meta a-nav-view
-    {:reagent-render
-     (fn [this]
-       (this))}))
+
 
 (defn app-root []
   (let [greeting (subscribe [:get-greeting])]
